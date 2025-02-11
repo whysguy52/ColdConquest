@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddco1pcgyhgmn"]
+
+[ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/TestShip/TestShip.tscn" id="1_dhnrc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2fdq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_e3lgl"]
+sky_material = SubResource("ProceduralSkyMaterial_b2fdq")
+
+[sub_resource type="Environment" id="Environment_yymmb"]
+background_mode = 2
+sky = SubResource("Sky_e3lgl")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yymmb")
+
+[node name="Node3D" parent="." instance=ExtResource("1_dhnrc")]

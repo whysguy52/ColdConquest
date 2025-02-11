@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhxjf32bkonfv"]
+
+[ext_resource type="PackedScene" uid="uid://baura5s6cfo0g" path="res://blenderFiles/TestShip/TestShip.blend" id="1_biugj"]
+[ext_resource type="Script" path="res://assets/TestShip/turret_controller.gd" id="2_ka1ok"]
+[ext_resource type="PackedScene" uid="uid://tpeub88qqyd4" path="res://assets/TestShip/turret.tscn" id="3_j8vx1"]
+[ext_resource type="Script" path="res://assets/TestShip/turret_pos.gd" id="3_ljyik"]
+[ext_resource type="Script" path="res://assets/TestShip/pilot_controller.gd" id="4_n5mat"]
+
+[node name="TestShip" type="Node3D"]
+transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0, 0, 0)
+
+[node name="ShipHull" parent="." instance=ExtResource("1_biugj")]
+
+[node name="TurretController" type="Node3D" parent="ShipHull"]
+script = ExtResource("2_ka1ok")
+
+[node name="turretPos1" type="Node3D" parent="ShipHull/TurretController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03, 0)
+script = ExtResource("3_ljyik")
+
+[node name="Turret" parent="ShipHull/TurretController/turretPos1" instance=ExtResource("3_j8vx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000319958, 0)
+
+[node name="turretPos2" type="Node3D" parent="ShipHull/TurretController"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.03, 0, 0)
+script = ExtResource("3_ljyik")
+
+[node name="Turret" parent="ShipHull/TurretController/turretPos2" instance=ExtResource("3_j8vx1")]
+transform = Transform3D(1, 1.06581e-14, 0, -1.06581e-14, 1, 0, 0, 0, 1, 9.17666e-12, -0.000209928, 0)
+
+[node name="turretPos3" type="Node3D" parent="ShipHull/TurretController"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, -1.03, 0)
+script = ExtResource("3_ljyik")
+
+[node name="Turret" parent="ShipHull/TurretController/turretPos3" instance=ExtResource("3_j8vx1")]
+transform = Transform3D(1, 2.13163e-14, 0, -2.13163e-14, 1, 0, 0, 0, 1, -2.88409e-11, 0.000329971, 0)
+
+[node name="turretPos4" type="Node3D" parent="ShipHull/TurretController"]
+transform = Transform3D(1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0, 1, -1.03, 0, 0)
+script = ExtResource("3_ljyik")
+
+[node name="Turret" parent="ShipHull/TurretController/turretPos4" instance=ExtResource("3_j8vx1")]
+transform = Transform3D(1, -1.31134e-07, 0, 1.31134e-07, 1, 0, 0, 0, 1, 5.63887e-11, -0.000429988, 0)
+
+[node name="PilotCamTurn" type="Node3D" parent="."]
+script = ExtResource("4_n5mat")
+
+[node name="PilotCamNod" type="Node3D" parent="PilotCamTurn"]
+
+[node name="PilotCam" type="Camera3D" parent="PilotCamTurn/PilotCamNod"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0598e-07, 0, 10)
+current = true
+size = 8.619

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq3qbyjvlk37d"]
+
+[ext_resource type="PackedScene" uid="uid://c47ankpbokpn0" path="res://blenderFiles/Turret/barrels.blend" id="1_3akmk"]
+[ext_resource type="Script" path="res://assets/TestShip/barrels.gd" id="2_lctm7"]
+
+[node name="barrels" instance=ExtResource("1_3akmk")]
+script = ExtResource("2_lctm7")
