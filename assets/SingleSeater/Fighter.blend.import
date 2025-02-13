@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dyavpevkqvlci"
-valid=false
+path="res://.godot/imported/Fighter.blend-be289b4f04394725b9f583d47ee9b75d.scn"
 
 [deps]
 
 source_file="res://assets/SingleSeater/Fighter.blend"
+dest_files=["res://.godot/imported/Fighter.blend-be289b4f04394725b9f583d47ee9b75d.scn"]
 
 [params]
 
