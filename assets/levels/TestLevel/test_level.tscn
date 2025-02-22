@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddco1pcgyhgmn"]
+[gd_scene load_steps=6 format=3 uid="uid://ddco1pcgyhgmn"]
 
 [ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/TestShip/TestShip.tscn" id="1_dhnrc"]
 
@@ -15,6 +15,8 @@ sky = SubResource("Sky_e3lgl")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_s7kf2"]
+
 [node name="TestLevel" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -24,4 +26,141 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yymmb")
 
-[node name="Node3D" parent="." instance=ExtResource("1_dhnrc")]
+[node name="obstacle_holder" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="obstacle_holder"]
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, -8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, 0)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="obstacle_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, 8)
+mesh = SubResource("BoxMesh_s7kf2")
+skeleton = NodePath("../..")
+
+[node name="TestShip" parent="." instance=ExtResource("1_dhnrc")]
+transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0, -13, 24)
