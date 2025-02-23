@@ -22,23 +22,23 @@ func _process(delta):
   pass
 
 
-func initiate_rotation(targetVect):
+func initiate_rotation(inTargetVect):
   #set current and target vector for slerp
   currentVect = -transform.basis.z
-  self.targetVect = targetVect
+  targetVect = inTargetVect
   #if player clicks RMB in the middle of a slerp, reset weight
   #or else rotation will start in the middle of a new slerp.
   rotWeight = 0.0
   #if they are the same, exit. possibly prevents 0 vector crashes
-  if currentVect == self.targetVect:
+  if currentVect == targetVect:
     return
   isRotating = true
   #collapse the y component so we only rotate around y. don't tilt back or forward
-  self.targetVect.y = 0
+  targetVect.y = 0
 
   #BARREL VECTOR CALCULATION
   #calculate angle between barrelTarget and base's y axis
-  var barrelAngle = targetVect.angle_to(transform.basis.y)
+  var barrelAngle = inTargetVect.angle_to(transform.basis.y)
   #create a new vector from the angle that excludes x
   #we exclude x so barrel only moves in yz plane
   #since angle is between y axis and vector, y = cos() not sin()
