@@ -11,20 +11,20 @@ var cam
 var up
 var isTurning:bool
 var rotWeight = 0.0
-var rotRate = 0.1
+var rotRate = 0.2
 var finalDirection:Vector3
 var initialDirection:Vector3
 var lookAtVect:Vector3
 
 #manual turn: roll, pitch, yaw
-var manualTurnRate = 10 * (PI/180) #degree per tick
+var manualTurnRate = 20 * (PI/180) #degree per tick
 var manualRoll = 0
 var manualPitch = 0
 var manualYaw = 0
 
 #ship mmove/displace
 var isForward = false
-var speed = 2
+var speed = 4
 var acc = 0.01 #not used yet
 
 # Called when the node enters the scene tree for the first time.
