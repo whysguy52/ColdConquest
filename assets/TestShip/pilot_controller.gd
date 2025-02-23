@@ -11,21 +11,21 @@ var cam
 var up
 var isTurning:bool
 var rotWeight = 0.0
-var rotRate = 0.01
+var rotRate = 0.1
 var finalDirection:Vector3
 var initialDirection:Vector3
 var lookAtVect:Vector3
 
 #manual turn: roll, pitch, yaw
-var manualTurnRate = 1 * (PI/180) #degree per tick
+var manualTurnRate = 10 * (PI/180) #degree per tick
 var manualRoll = 0
 var manualPitch = 0
 var manualYaw = 0
 
 #ship mmove/displace
 var isForward = false
-var speed = 0.1
-var acc = 0.01
+var speed = 2
+var acc = 0.01 #not used yet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,16 +44,16 @@ func _physics_process(delta):
     return
     #manual overrides auto turning by putting it first
   if isTurning:
-    ship_turn()
+    ship_turn(delta)
   if manualRoll != 0:
-    manual_roll()
+    manual_roll(delta)
   if manualPitch != 0:
-    manual_pitch()
+    manual_pitch(delta)
   if manualYaw != 0:
-    manual_yaw()
+    manual_yaw(delta)
 
   if isForward:
-    accelerate_ship()
+    accelerate_ship(delta)
 
   pass
 
@@ -69,21 +69,21 @@ func _input(event):
     finalDirection = -cam.global_transform.basis.z #cam is nested so we have to take global
     initialDirection = -shipRotator.transform.basis.z
 
-func manual_roll():
+func manual_roll(delta):
   isTurning = false
-  shipRotator.rotate(-shipRotator.transform.basis.z, manualRoll * manualTurnRate)
-func manual_yaw():
+  shipRotator.rotate(-shipRotator.transform.basis.z, manualRoll * manualTurnRate * delta)
+func manual_yaw(delta):
   isTurning = false
-  shipRotator.rotate(shipRotator.transform.basis.y, -manualYaw * manualTurnRate)
-func manual_pitch():
+  shipRotator.rotate(shipRotator.transform.basis.y, -manualYaw * manualTurnRate * delta)
+func manual_pitch(delta):
   isTurning = false
-  shipRotator.rotate(shipRotator.transform.basis.x, manualPitch * manualTurnRate)
+  shipRotator.rotate(shipRotator.transform.basis.x, manualPitch * manualTurnRate * delta)
 
-func accelerate_ship():
-  global_position += -shipRotator.global_transform.basis.z * speed
+func accelerate_ship(delta):
+  global_position += -shipRotator.global_transform.basis.z * speed * delta
   pass
 
-func ship_turn():
+func ship_turn(delta):
   if rotWeight == 1.0:    #if we are done rotating
     rotWeight = 0.0
     isTurning = false
@@ -92,7 +92,7 @@ func ship_turn():
     rotWeight = 1.0
     lookAtVect = initialDirection.slerp(finalDirection, rotWeight)
   else:                   #normal rotation case
-    rotWeight += rotRate
+    rotWeight += rotRate * delta
     lookAtVect = initialDirection.slerp(finalDirection, rotWeight)
 
   up = shipRotator.global_transform.basis.y
