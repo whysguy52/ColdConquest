@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmd5wus57w1bv"]
+
+[ext_resource type="PackedScene" uid="uid://bnfta8h0g01y0" path="res://assets/SingleSeater/cockpit/seat.blend" id="1_pyahs"]
+[ext_resource type="PackedScene" uid="uid://tg0g1jmbq0xa" path="res://assets/SingleSeater/vr_player.tscn" id="2_3jp8m"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="seat" parent="." instance=ExtResource("1_pyahs")]
+
+[node name="VR_Player" parent="." instance=ExtResource("2_3jp8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369442, 0)

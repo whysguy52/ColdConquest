@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddco1pcgyhgmn"]
 
-[ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/TestShip/TestShip.tscn" id="1_dhnrc"]
+[ext_resource type="PackedScene" uid="uid://bmd5wus57w1bv" path="res://assets/SingleSeater/fighter.tscn" id="1_6uxjy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2fdq"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -162,5 +162,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, 8)
 mesh = SubResource("BoxMesh_s7kf2")
 skeleton = NodePath("../..")
 
-[node name="TestShip" parent="." instance=ExtResource("1_dhnrc")]
-transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0, -13, 24)
+[node name="Node3D" parent="." instance=ExtResource("1_6uxjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 64.3429)

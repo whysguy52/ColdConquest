@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://tg0g1jmbq0xa"]
+
+[ext_resource type="Script" path="res://assets/SingleSeater/vr_player.gd" id="1_78c2s"]
+
+[node name="VR_Player" type="XROrigin3D"]
+script = ExtResource("1_78c2s")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+current = true
+
+[node name="LeftHand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="RightHand" type="XRController3D" parent="."]
+tracker = &"right_hand"
