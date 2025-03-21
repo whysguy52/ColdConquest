@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://tg0g1jmbq0xa" path="res://assets/SingleSeater/vr_player.tscn" id="2_3jp8m"]
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="seat" parent="." instance=ExtResource("1_pyahs")]
 
 [node name="VR_Player" parent="." instance=ExtResource("2_3jp8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369442, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299702, 0)

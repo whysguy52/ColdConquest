@@ -6,6 +6,7 @@
 script = ExtResource("1_78c2s")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 current = true
 
 [node name="LeftHand" type="XRController3D" parent="."]
