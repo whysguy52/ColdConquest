@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bnfta8h0g01y0" path="res://assets/SingleSeater/cockpit/seat.blend" id="1_pyahs"]
 [ext_resource type="PackedScene" uid="uid://tg0g1jmbq0xa" path="res://assets/SingleSeater/vr_player.tscn" id="2_3jp8m"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Fighter" type="Node3D"]
 
 [node name="seat" parent="." instance=ExtResource("1_pyahs")]
 

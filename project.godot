@@ -65,5 +65,4 @@ key_f={
 
 [xr]
 
-openxr/enabled=true
 shaders/enabled=true

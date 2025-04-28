@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0looyb6ju04e"]
+
+[ext_resource type="PackedScene" uid="uid://c0a3v53rrco7y" path="res://assets/levels/SolarSystemAssets/map_planet.tscn" id="1_wamoo"]
+[ext_resource type="PackedScene" uid="uid://6vnxxxs3qnx3" path="res://assets/levels/SolarSystemAssets/map_player.tscn" id="2_usa16"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wamoo"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_usa16"]
+sky_material = SubResource("ProceduralSkyMaterial_wamoo")
+
+[sub_resource type="Environment" id="Environment_0fok5"]
+background_mode = 2
+sky = SubResource("Sky_usa16")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_foumv"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nneni"]
+size = Vector3(32, 32, 32)
+
+[node name="Solar System" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0fok5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Sun" type="Area3D" parent="."]
+
+[node name="SunMesh" type="MeshInstance3D" parent="Sun"]
+mesh = SubResource("SphereMesh_foumv")
+skeleton = NodePath("../..")
+
+[node name="RenderDetection" type="CollisionShape3D" parent="Sun"]
+shape = SubResource("BoxShape3D_nneni")
+
+[node name="Planets" type="Node3D" parent="."]
+
+[node name="MapPlanet1" parent="Planets" instance=ExtResource("1_wamoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 72)
+
+[node name="MapPlanet2" parent="Planets" instance=ExtResource("1_wamoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+
+[node name="MapPlanet3" parent="Planets" instance=ExtResource("1_wamoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -320, 0, -258)
+
+[node name="MapPlayer" parent="." instance=ExtResource("2_usa16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0)
+projection = 1
+size = 564.0
