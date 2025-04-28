@@ -5,8 +5,8 @@ albedo_color = Color(0.0656, 0.4, 0.048, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_wu7hf"]
 material = SubResource("StandardMaterial3D_wu7hf")
-radius = 500.0
-height = 1000.0
+radius = 3000.0
+height = 6000.0
 
 [node name="ScenePlanet" type="MeshInstance3D"]
 mesh = SubResource("SphereMesh_wu7hf")

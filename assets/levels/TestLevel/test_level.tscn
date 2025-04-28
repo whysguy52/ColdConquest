@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddco1pcgyhgmn"]
+[gd_scene load_steps=7 format=3 uid="uid://ddco1pcgyhgmn"]
 
 [ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/TestShip/TestShip.tscn" id="1_p0o6o"]
+[ext_resource type="PackedScene" uid="uid://d5dxckffs3d0" path="res://assets/levels/SolarSystemAssets/scene_planet.tscn" id="2_rvmco"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2fdq"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -164,3 +165,6 @@ skeleton = NodePath("../..")
 
 [node name="TestShip" parent="." instance=ExtResource("1_p0o6o")]
 transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0, 0, 40)
+
+[node name="ScenePlanet" parent="." instance=ExtResource("2_rvmco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3393.15)

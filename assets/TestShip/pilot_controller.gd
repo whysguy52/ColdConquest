@@ -25,12 +25,15 @@ var manualYaw = 0
 #ship mmove/displace
 var isForward = false
 var speed = 4
+var warpSpeed = 1000
+var currentSpeed
 var acc = 0.01 #not used yet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
   shipRotator = get_node("ShipHull")
   cam = get_node("PilotCamTurn/PilotCamNod/PilotCam")
+  $CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem.get_parent_ship($ShipHull)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,8 +63,13 @@ func _physics_process(delta):
 func _input(event):
   if event.is_action_pressed("key_r"):
     isForward = true
+    currentSpeed = speed
   elif event.is_action_pressed("key_f"):
     isForward = false
+    currentSpeed = 0
+  elif event.is_action_pressed("space_bar"):
+    isForward = !isForward
+    currentSpeed = warpSpeed * int(isForward)
 
   if event.is_action_pressed("RMB"):
     rotWeight = 0.0
@@ -80,7 +88,7 @@ func manual_pitch(delta):
   shipRotator.rotate(shipRotator.transform.basis.x, manualPitch * manualTurnRate * delta)
 
 func accelerate_ship(delta):
-  global_position += -shipRotator.global_transform.basis.z * speed * delta
+  global_position += -shipRotator.global_transform.basis.z * currentSpeed * delta
   pass
 
 func ship_turn(delta):
