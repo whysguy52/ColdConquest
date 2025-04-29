@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b17m3hncmdrgc"]
+
+[ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/TestShip/TestShip.tscn" id="1_10a1v"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eyepy"]
+particle_flag_align_y = true
+emission_shape_offset = Vector3(0, 0, -20)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 5.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 1)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_10a1v"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 20.0
+radial_segments = 8
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_10a1v"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_e3lgl"]
+sky_material = SubResource("ProceduralSkyMaterial_10a1v")
+
+[sub_resource type="Environment" id="Environment_668lf"]
+background_mode = 2
+sky = SubResource("Sky_e3lgl")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="WarpScene" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 15
+lifetime = 4.0
+speed_scale = 5.0
+process_material = SubResource("ParticleProcessMaterial_eyepy")
+draw_pass_1 = SubResource("CylinderMesh_10a1v")
+
+[node name="TestShip" parent="." instance=ExtResource("1_10a1v")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_668lf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 19, 0)
+shadow_enabled = true
