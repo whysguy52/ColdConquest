@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhxjf32bkonfv"]
+[gd_scene load_steps=10 format=3 uid="uid://dhxjf32bkonfv"]
 
 [ext_resource type="PackedScene" uid="uid://derjr1ciybwqa" path="res://blenderFiles/TestShip/TestShip.blend" id="1_biugj"]
 [ext_resource type="Script" uid="uid://eht7op1fq2os" path="res://assets/TestShip/turret_controller.gd" id="2_ka1ok"]
@@ -7,6 +7,27 @@
 [ext_resource type="Script" uid="uid://bjq0cvip7ctl2" path="res://assets/TestShip/pilot_controller.gd" id="4_n5mat"]
 [ext_resource type="Script" uid="uid://cu75n3mpmstqb" path="res://assets/TestShip/pilot_cam.gd" id="6_rcimf"]
 [ext_resource type="PackedScene" uid="uid://d0looyb6ju04e" path="res://assets/levels/SolarSystem1/mini_solar_system.tscn" id="7_sye50"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sye50"]
+particle_flag_align_y = true
+emission_shape_offset = Vector3(0, 0, -20)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 20.0
+emission_ring_inner_radius = 5.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 1)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lihlu"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 20.0
+radial_segments = 8
 
 [node name="TestShip" type="Node3D"]
 transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0, 0, 0)
@@ -45,6 +66,14 @@ script = ExtResource("3_ljyik")
 [node name="Turret" parent="ShipHull/TurretController/turretPos4" instance=ExtResource("3_j8vx1")]
 transform = Transform3D(1, -1.31134e-07, 0, 1.31134e-07, 1, 0, 0, 0, 1, 5.63887e-11, -0.000429988, 0)
 
+[node name="WarpParticles" type="GPUParticles3D" parent="ShipHull"]
+visible = false
+amount = 15
+lifetime = 4.0
+speed_scale = 5.0
+process_material = SubResource("ParticleProcessMaterial_sye50")
+draw_pass_1 = SubResource("CylinderMesh_lihlu")
+
 [node name="PilotCamTurn" type="Node3D" parent="."]
 script = ExtResource("6_rcimf")
 
@@ -54,6 +83,7 @@ script = ExtResource("6_rcimf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0598e-07, 0, 10)
 current = true
 size = 8.619
+far = 10000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

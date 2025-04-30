@@ -24,6 +24,7 @@ var manualYaw = 0
 
 #ship mmove/displace
 var isForward = false
+var isWarp = false
 var speed = 4
 var warpSpeed = 1000
 var currentSpeed
@@ -55,21 +56,23 @@ func _physics_process(delta):
   if manualYaw != 0:
     manual_yaw(delta)
 
-  if isForward:
+  if isForward or isWarp:
     accelerate_ship(delta)
 
   pass
 
 func _input(event):
-  if event.is_action_pressed("key_r"):
+  if event.is_action_pressed("key_r") and !isWarp:
     isForward = true
     currentSpeed = speed
-  elif event.is_action_pressed("key_f"):
+  elif event.is_action_pressed("key_f") and !isWarp:
     isForward = false
     currentSpeed = 0
   elif event.is_action_pressed("space_bar"):
-    isForward = !isForward
-    currentSpeed = warpSpeed * int(isForward)
+    isForward = false
+    isWarp = !isWarp
+    currentSpeed = warpSpeed * int(isWarp)
+    $ShipHull/WarpParticles.visible = !$ShipHull/WarpParticles.visible
 
   if event.is_action_pressed("RMB"):
     rotWeight = 0.0

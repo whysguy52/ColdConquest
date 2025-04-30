@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwisv26f44f0d"]
+
+[ext_resource type="Script" uid="uid://ccsqx021xll7y" path="res://assets/universal_Scenes/scene_manager.gd" id="1_coycw"]
+[ext_resource type="PackedScene" uid="uid://ddco1pcgyhgmn" path="res://assets/levels/TestLevel/test_level.tscn" id="1_dcopf"]
+[ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/TestShip/TestShip.tscn" id="2_ka5y5"]
+
+[node name="SceneManager" type="Node3D"]
+script = ExtResource("1_coycw")
+
+[node name="TestLevel" parent="." instance=ExtResource("1_dcopf")]
+
+[node name="TestShip" parent="." instance=ExtResource("2_ka5y5")]
+transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0, 0, 33)

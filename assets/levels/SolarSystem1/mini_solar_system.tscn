@@ -27,7 +27,6 @@ height = 10.0
 size = Vector3(32, 32, 32)
 
 [node name="MiniSolarSystem" type="Node3D"]
-visible = false
 script = ExtResource("1_bupty")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -35,7 +34,6 @@ environment = SubResource("Environment_0fok5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
-visible = false
 shadow_enabled = true
 
 [node name="Sun" type="Area3D" parent="."]
@@ -63,6 +61,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0)
-visible = false
 projection = 1
 size = 164.0
