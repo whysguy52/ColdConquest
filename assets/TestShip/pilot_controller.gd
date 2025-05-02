@@ -23,6 +23,7 @@ var manualPitch = 0
 var manualYaw = 0
 
 #ship mmove/displace
+var isNearPlanet = true
 var isForward = false
 var isWarp = false
 var speed = 4
@@ -38,12 +39,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
   manualRoll = int(Input.is_action_pressed("key_e")) - int(Input.is_action_pressed("key_q"))
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
   pass
 
 func _physics_process(delta):
+
   if !isPilot:
     return
     #manual overrides auto turning by putting it first
@@ -59,6 +62,9 @@ func _physics_process(delta):
   if isForward or isWarp:
     accelerate_ship(delta)
 
+  if !isNearPlanet:
+    global_position = Vector3(0,0,0)
+  print(global_position)
   pass
 
 func _input(event):
@@ -72,7 +78,7 @@ func _input(event):
     isForward = false
     isWarp = !isWarp
     currentSpeed = warpSpeed * int(isWarp)
-    $ShipHull/WarpParticles.visible = !$ShipHull/WarpParticles.visible
+    $ShipHull/WarpParticles.emitting = !$ShipHull/WarpParticles.emitting
 
   if event.is_action_pressed("RMB"):
     rotWeight = 0.0
@@ -91,7 +97,8 @@ func manual_pitch(delta):
   shipRotator.rotate(shipRotator.transform.basis.x, manualPitch * manualTurnRate * delta)
 
 func accelerate_ship(delta):
-  global_position += -shipRotator.global_transform.basis.z * currentSpeed * delta
+  global_position += -shipRotator.global_transform.basis.z * int(isNearPlanet) * currentSpeed * delta
+
   pass
 
 func ship_turn(delta):
@@ -108,3 +115,6 @@ func ship_turn(delta):
 
   up = shipRotator.global_transform.basis.y
   shipRotator.transform.basis = shipRotator.transform.basis.looking_at(lookAtVect,up)
+
+func set_near_planet(nearPlanet:bool):
+  isNearPlanet = nearPlanet

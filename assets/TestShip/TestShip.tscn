@@ -67,7 +67,7 @@ script = ExtResource("3_ljyik")
 transform = Transform3D(1, -1.31134e-07, 0, 1.31134e-07, 1, 0, 0, 0, 1, 5.63887e-11, -0.000429988, 0)
 
 [node name="WarpParticles" type="GPUParticles3D" parent="ShipHull"]
-visible = false
+emitting = false
 amount = 15
 lifetime = 4.0
 speed_scale = 5.0
@@ -83,7 +83,7 @@ script = ExtResource("6_rcimf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0598e-07, 0, 10)
 current = true
 size = 8.619
-far = 10000.0
+far = 1e+06
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

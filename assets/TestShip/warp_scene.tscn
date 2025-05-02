@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b17m3hncmdrgc"]
+[gd_scene load_steps=2 format=3 uid="uid://b17m3hncmdrgc"]
+
+[ext_resource type="Script" uid="uid://drki130alqqy2" path="res://assets/TestShip/warp_scene.gd" id="1_qcsy6"]
 
 [node name="WarpScene" type="Node3D"]
+script = ExtResource("1_qcsy6")
