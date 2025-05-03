@@ -72,6 +72,7 @@ emitting = false
 amount = 15
 lifetime = 4.0
 speed_scale = 5.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_sye50")
 draw_pass_1 = SubResource("CylinderMesh_lihlu")
 
