@@ -32,15 +32,20 @@ var currentSpeed
 var acc = 0.01 #not used yet
 
 #Camera_HUD
-var planet_list
-var hud_planets
+var planetList
+var hudPlanets : Array
+var mapPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-  planet_list = $CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
+  planetList = $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
+  mapPlayer =  $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/MapPlayer
+
+  create_hud_planets()
   shipRotator = get_node("ShipHull")
   cam = get_node("PilotCamTurn/PilotCamNod/PilotCam")
-  $CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem.get_parent_ship($ShipHull)
+  $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem.get_parent_ship($ShipHull)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -49,7 +54,7 @@ func _process(delta):
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
 
-  update_visual_hud()
+  #update_visual_hud()
   pass
 
 func _physics_process(delta):
@@ -124,8 +129,13 @@ func ship_turn(delta):
 func set_near_planet(nearPlanet:bool):
   isNearPlanet = nearPlanet
 
+func create_hud_planets():
+  for planet in planetList:
+    var planetPos = Node3D.new()
+    hudPlanets.append(planetPos)
+    $HudPlanets.add_child(planetPos)
+    planetPos.global_position = (planet.global_position - mapPlayer.global_position) * 1000
+  $ScreenLayer.set_planet_references(hudPlanets)
 func update_visual_hud():
-  for planet in planet_list:
-    var planet_pos = Node3D.new()
-    planet_pos.global_position = planet.global_position -
+  $ScreenLayer.drawPlanetMarkers(hudPlanets)
   pass

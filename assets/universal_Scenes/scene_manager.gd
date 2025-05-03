@@ -6,9 +6,9 @@ var warpScene
 var planet_scene # make this an array that loads dynamically on ready
 
 func _ready():
-  var planetsList = $TestShip/CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
+  var planetsList = $TestShip/ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
   currentScene = $CurrentScene
-  mapPlayer = $TestShip/CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/MapPlayer
+  mapPlayer = $TestShip/ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/MapPlayer
   planet_scene = load("res://assets/levels/SolarSystemAssets/scene_planet.tscn")
   warpScene = load("res://assets/TestShip/warp_scene.tscn")
 
