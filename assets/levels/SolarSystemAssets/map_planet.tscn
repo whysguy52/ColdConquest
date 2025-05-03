@@ -4,8 +4,8 @@
 radius = 3.0
 height = 6.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_weiwp"]
-size = Vector3(16, 16, 16)
+[sub_resource type="SphereShape3D" id="SphereShape3D_t8e3k"]
+radius = 15.0
 
 [node name="MapPlanet" type="Area3D"]
 
@@ -13,4 +13,4 @@ size = Vector3(16, 16, 16)
 mesh = SubResource("SphereMesh_shg4b")
 
 [node name="RenderDetection" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_weiwp")
+shape = SubResource("SphereShape3D_t8e3k")

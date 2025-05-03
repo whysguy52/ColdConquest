@@ -139,4 +139,4 @@ func create_hud_planets():
 
 func update_visual_hud_planets():
   for i in range(hudPlanets.size()):
-    hudPlanets[i].global_position = (miniPlanetList[i].global_position - mapPlayer.global_position) * 1000
+    hudPlanets[i].global_position = (miniPlanetList[i].global_position - mapPlayer.global_position) * 500
