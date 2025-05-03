@@ -31,8 +31,13 @@ var warpSpeed = 1000
 var currentSpeed
 var acc = 0.01 #not used yet
 
+#Camera_HUD
+var planet_list
+var hud_planets
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+  planet_list = $CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
   shipRotator = get_node("ShipHull")
   cam = get_node("PilotCamTurn/PilotCamNod/PilotCam")
   $CanvasLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem.get_parent_ship($ShipHull)
@@ -43,9 +48,13 @@ func _process(delta):
   manualRoll = int(Input.is_action_pressed("key_e")) - int(Input.is_action_pressed("key_q"))
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
+
+  update_visual_hud()
   pass
 
 func _physics_process(delta):
+  if !isNearPlanet:
+    global_position = Vector3(0,0,0)
 
   if !isPilot:
     return
@@ -61,10 +70,6 @@ func _physics_process(delta):
 
   if isForward or isWarp:
     accelerate_ship(delta)
-
-  if !isNearPlanet:
-    global_position = Vector3(0,0,0)
-  print(global_position)
   pass
 
 func _input(event):
@@ -118,3 +123,9 @@ func ship_turn(delta):
 
 func set_near_planet(nearPlanet:bool):
   isNearPlanet = nearPlanet
+
+func update_visual_hud():
+  for planet in planet_list:
+    var planet_pos = Node3D.new()
+    planet_pos.global_position = planet.global_position -
+  pass
