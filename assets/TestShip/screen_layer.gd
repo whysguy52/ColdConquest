@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var planetsActual
+var planetsMap
 var planetHudIconSrc
 
 func _ready():
@@ -14,9 +15,10 @@ func set_planet_references(planets):
     $PlanetHUDList.add_child(planetMarker)
 
 func _process(delta):
-  draw_planet_markers()
+  pass
+  #draw_planet_markers()
 
-func draw_planet_markers():
+func draw_planet_markers(hudPlanets):
   #make more efficient. don't create new each time
 
   pass

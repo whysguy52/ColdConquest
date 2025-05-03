@@ -32,14 +32,14 @@ var currentSpeed
 var acc = 0.01 #not used yet
 
 #Camera_HUD
-var planetList
+var miniPlanetList
 var hudPlanets : Array
 var mapPlayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-  planetList = $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
+  miniPlanetList = $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
   mapPlayer =  $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/MapPlayer
 
   create_hud_planets()
@@ -54,7 +54,7 @@ func _process(delta):
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
 
-  #update_visual_hud()
+  update_visual_hud_planets()
   pass
 
 func _physics_process(delta):
@@ -130,12 +130,13 @@ func set_near_planet(nearPlanet:bool):
   isNearPlanet = nearPlanet
 
 func create_hud_planets():
-  for planet in planetList:
+  for planet in miniPlanetList:
     var planetPos = Node3D.new()
     hudPlanets.append(planetPos)
     $HudPlanets.add_child(planetPos)
     planetPos.global_position = (planet.global_position - mapPlayer.global_position) * 1000
   $ScreenLayer.set_planet_references(hudPlanets)
-func update_visual_hud():
-  $ScreenLayer.drawPlanetMarkers(hudPlanets)
-  pass
+
+func update_visual_hud_planets():
+  for i in range(hudPlanets.size()):
+    hudPlanets[i].global_position = (miniPlanetList[i].global_position - mapPlayer.global_position) * 1000
