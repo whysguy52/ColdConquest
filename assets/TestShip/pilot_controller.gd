@@ -54,12 +54,13 @@ func _process(delta):
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
 
-  update_visual_hud_planets()
+
   pass
 
 func _physics_process(delta):
   if !isNearPlanet:
     global_position = Vector3(0,0,0)
+  update_visual_hud_planets()
 
   if !isPilot:
     return
@@ -131,12 +132,13 @@ func set_near_planet(nearPlanet:bool):
 
 func create_hud_planets():
   for planet in miniPlanetList:
-    var planetPos = Node3D.new()
+    var planetPos = load("res://assets/levels/SolarSystemAssets/scene_planet.tscn").instantiate()
+    planetPos.scale = Vector3(0.1,0.1,0.1)
     hudPlanets.append(planetPos)
     $HudPlanets.add_child(planetPos)
-    planetPos.global_position = (planet.global_position - mapPlayer.global_position) * 1000
+    planetPos.position = (planet.global_position - mapPlayer.global_position) * 1000
   $ScreenLayer.set_planet_references(hudPlanets)
 
 func update_visual_hud_planets():
   for i in range(hudPlanets.size()):
-    hudPlanets[i].global_position = (miniPlanetList[i].global_position - mapPlayer.global_position) * 500
+    hudPlanets[i].position = (miniPlanetList[i].global_position - mapPlayer.global_position) * 1000
