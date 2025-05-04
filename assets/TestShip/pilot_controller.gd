@@ -27,7 +27,7 @@ var isNearPlanet = true
 var isForward = false
 var isWarp = false
 var speed = 4
-var warpSpeed = 1000
+var warpSpeed = 5000
 var currentSpeed
 var acc = 0.01 #not used yet
 
@@ -132,8 +132,7 @@ func set_near_planet(nearPlanet:bool):
 
 func create_hud_planets():
   for planet in miniPlanetList:
-    var planetPos = load("res://assets/levels/SolarSystemAssets/scene_planet.tscn").instantiate()
-    planetPos.scale = Vector3(0.1,0.1,0.1)
+    var planetPos = Node3D.new()
     hudPlanets.append(planetPos)
     $HudPlanets.add_child(planetPos)
     planetPos.position = (planet.global_position - mapPlayer.global_position) * 1000
