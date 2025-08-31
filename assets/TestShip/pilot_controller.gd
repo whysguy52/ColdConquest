@@ -41,8 +41,9 @@ var mapPlayer
 func _ready():
   miniPlanetList = $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/Planets.get_children()
   mapPlayer =  $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem/MapPlayer
-
   create_hud_planets()
+
+  Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
   shipRotator = get_node("ShipHull")
   cam = get_node("PilotCamTurn/PilotCamNod/PilotCam")
   $ScreenLayer/HUD/SubViewportContainer/SubViewport/MiniSolarSystem.get_parent_ship($ShipHull)
@@ -54,6 +55,10 @@ func _process(delta):
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
 
+  if Input.is_action_just_pressed("key_esc") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+  elif Input.is_action_just_pressed("key_esc"):
+    Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
   pass
 
@@ -62,6 +67,7 @@ func _physics_process(delta):
     global_position = Vector3(0,0,0)
   update_visual_hud_planets()
 
+  #pilot processing all others return
   if !isPilot:
     return
     #manual overrides auto turning by putting it first
@@ -79,6 +85,7 @@ func _physics_process(delta):
   pass
 
 func _input(event):
+
   if event.is_action_pressed("key_r") and !isWarp:
     isForward = true
     currentSpeed = speed
