@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ivtdpm05yej"]
+
+[ext_resource type="PackedScene" uid="uid://giymhwsxa7p6" path="res://assets/Logi/Prime_Rep/Prime_Rep.blend" id="1_3msxk"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Prime_Rep" parent="." instance=ExtResource("1_3msxk")]
