@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmd5wus57w1bv"]
 
-[ext_resource type="PackedScene" uid="uid://bnfta8h0g01y0" path="res://assets/SingleSeater/cockpit/seat.blend" id="1_pyahs"]
-[ext_resource type="PackedScene" uid="uid://tg0g1jmbq0xa" path="res://assets/SingleSeater/vr_player.tscn" id="2_3jp8m"]
+[ext_resource type="PackedScene" uid="uid://cob5cbn17kvik" path="res://assets/Ships/1_Seaters/Fighter/SingleSeater/cockpit/seat.blend" id="1_pyahs"]
+[ext_resource type="PackedScene" uid="uid://tg0g1jmbq0xa" path="res://assets/Ships/1_Seaters/Fighter/SingleSeater/vr_player.tscn" id="2_3jp8m"]
 
 [node name="Fighter" type="Node3D"]
 

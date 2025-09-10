@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://tpeub88qqyd4"]
 
 [ext_resource type="Script" uid="uid://dsif7h2e244hm" path="res://assets/TestShip/turret.gd" id="1_w4u28"]
-[ext_resource type="PackedScene" uid="uid://cbpguctdnurgb" path="res://blenderFiles/Turret/Turret.blend" id="2_jj2yj"]
+[ext_resource type="PackedScene" uid="uid://x5lg7w8vq1xv" path="res://blenderFiles/Turret/Turret.blend" id="2_jj2yj"]
 [ext_resource type="PackedScene" uid="uid://cq3qbyjvlk37d" path="res://assets/TestShip/barrels.tscn" id="3_3gef1"]
 
 [node name="Turret" type="Node3D"]
