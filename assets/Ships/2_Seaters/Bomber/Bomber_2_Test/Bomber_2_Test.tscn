@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b6qvo5ycslp36"]
 
-[ext_resource type="PackedScene" uid="uid://cwpb5criodrtn" path="res://assets/Ships/2_Seaters/Bomber_2_Test/Bomber_2_Test.blend" id="1_qluqa"]
+[ext_resource type="PackedScene" uid="uid://cwpb5criodrtn" path="res://assets/Ships/2_Seaters/Bomber/Bomber_2_Test/Bomber_2_Test.blend" id="1_qluqa"]
 
 [node name="Bomber_2_Test" type="Node3D"]
 
