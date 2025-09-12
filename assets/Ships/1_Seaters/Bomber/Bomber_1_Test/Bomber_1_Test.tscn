@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce0un6qoeqm30"]
+
+[ext_resource type="PackedScene" uid="uid://dyn0ecom5rpj8" path="res://assets/Ships/1_Seaters/Bomber/Bomber_1_Test/Bomber_Tester.blend" id="1_gp70a"]
+
+[node name="Bomber_1_Test" type="Node3D"]
+
+[node name="Bomber_Tester" parent="." instance=ExtResource("1_gp70a")]

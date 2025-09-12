@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://tg0g1jmbq0xa"]
 
-[ext_resource type="Script" uid="uid://1eiuo48lki34" path="res://assets/SingleSeater/vr_player.gd" id="1_78c2s"]
+[ext_resource type="Script" uid="uid://1eiuo48lki34" path="res://assets/Ships/1_Seaters/Fighter/VR_Experiment/vr_player.gd" id="1_78c2s"]
 
 [node name="VR_Player" type="XROrigin3D"]
 script = ExtResource("1_78c2s")

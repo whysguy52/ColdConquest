@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct5mkjdiwn464"]
+
+[ext_resource type="PackedScene" uid="uid://da3tcq8s3ffo" path="res://assets/Ships/1_Seaters/Fighter/Fighter_1_Test/Fighter.blend" id="1_kpmq4"]
+
+[node name="Fighter_1_Test" type="Node3D"]
+
+[node name="Fighter" parent="." instance=ExtResource("1_kpmq4")]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kg6qy0swcjhj"]
+
+[ext_resource type="PackedScene" uid="uid://t1afyiwsa2e" path="res://assets/Ships/1_Seaters/Attack/Attack_1_Tester/Attack_Tester.blend" id="1_183bb"]
+
+[node name="Attack_1_Test" type="Node3D"]
+
+[node name="Attack_Tester" parent="." instance=ExtResource("1_183bb")]

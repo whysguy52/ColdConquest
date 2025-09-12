@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://psng2c7e2k5y"]
+
+[ext_resource type="PackedScene" uid="uid://b4tlwhc38trwq" path="res://assets/Ships/2_Seaters/Attack/Attack_2_Test/Attack_2_Test.blend" id="1_a1wg5"]
+
+[node name="Attack_2_Test" type="Node3D"]
+
+[node name="Attack_2_Test" parent="." instance=ExtResource("1_a1wg5")]
