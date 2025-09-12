@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bstauvxfq5qfj"]
+
+[ext_resource type="PackedScene" uid="uid://cl6rlmfi2l4v" path="res://assets/Ships/2_Seaters/Fighter/Fighter_2_Test/Fighter_2_Test.blend" id="1_ys707"]
+
+[node name="Fighter_2_Test" type="Node3D"]
+
+[node name="Fighter_2_Test" parent="." instance=ExtResource("1_ys707")]
