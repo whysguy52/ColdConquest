@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr6717864s4gp"]
+
+[ext_resource type="PackedScene" uid="uid://hwdvjs63x214" path="res://assets/Ships/2_Seaters/Support/Support_2_Test/Support_Test_2.blend" id="1_ngml7"]
+
+[node name="Support_Test_2" type="Node3D"]
+
+[node name="Support_Test_2" parent="." instance=ExtResource("1_ngml7")]
