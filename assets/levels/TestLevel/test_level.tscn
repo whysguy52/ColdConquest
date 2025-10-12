@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddco1pcgyhgmn"]
+[gd_scene load_steps=3 format=3 uid="uid://bk8g3pm76wxfh"]
 
-[ext_resource type="PackedScene" uid="uid://d5dxckffs3d0" path="res://assets/levels/SolarSystemAssets/scene_planet.tscn" id="2_rvmco"]
+[ext_resource type="PackedScene" uid="uid://d5dxckffs3d0" path="res://assets/levels/SolarSystemAssets/planet/scene_planet.tscn" id="2_rvmco"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s7kf2"]
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0a3v53rrco7y"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_shg4b"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t8e3k"]
+radius = 15.0
+
+[node name="MapPlanet" type="Area3D"]
+
+[node name="PlanetMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_shg4b")
+
+[node name="RenderDetection" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_t8e3k")
