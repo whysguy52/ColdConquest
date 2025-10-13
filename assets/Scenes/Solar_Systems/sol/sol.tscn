@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5wpwui5gmyfo"]
+
+[ext_resource type="Script" uid="uid://3r2r5g3nr1sk" path="res://assets/Scenes/Solar_Systems/sol/sol.gd" id="1_ower1"]
+[ext_resource type="PackedScene" uid="uid://dhxjf32bkonfv" path="res://assets/Ships/6_Seaters/TestShip/TestShip.tscn" id="2_wddeh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wddeh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_o3hky"]
+sky_material = SubResource("ProceduralSkyMaterial_wddeh")
+
+[sub_resource type="Environment" id="Environment_qjhm6"]
+background_mode = 2
+sky = SubResource("Sky_o3hky")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Sol" type="Node3D"]
+script = ExtResource("1_ower1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qjhm6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254037844387, -0.43301270189221924, 0.25, 0, 0.5000000000000001, 0.8660254037844386, -0.49999999999999994, 0.75, -0.43301270189221946, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="TestShip" parent="." instance=ExtResource("2_wddeh")]
+
+[node name="Planets" type="Node3D" parent="."]

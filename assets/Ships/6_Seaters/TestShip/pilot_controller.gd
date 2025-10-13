@@ -47,7 +47,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-  print( currentSpeed )
+  print(currentSpeed)
   manualRoll = int(Input.is_action_pressed("key_e")) - int(Input.is_action_pressed("key_q"))
   manualPitch = int(Input.is_action_pressed("key_s")) - int(Input.is_action_pressed("key_w"))
   manualYaw = int(Input.is_action_pressed("key_d")) - int(Input.is_action_pressed("key_a"))
@@ -89,14 +89,14 @@ func _input(event):
     isForward = false
     currentSpeed = 0
   elif event.is_action_pressed("space_bar"):
-    warpFactor += 1000
-    warpFactor = clamp(warpFactor, 0, 4000)
+    warpFactor += 100000
+    warpFactor = clamp(warpFactor, 0, 400000)
     isForward = false
     currentSpeed = warpSpeed * warpFactor
     $ShipHull/WarpParticles.emitting = true
   elif event.is_action_pressed("Ctrl_L"):
-    warpFactor -= 1000
-    warpFactor = clamp(warpFactor, 0, 4000)
+    warpFactor -= 100000
+    warpFactor = clamp(warpFactor, 0, 400000)
     $ShipHull/WarpParticles.emitting = bool(warpFactor * int(true))
     currentSpeed = warpSpeed * warpFactor
 

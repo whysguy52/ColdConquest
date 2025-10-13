@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7u3tidcuw34f"]
+
+[ext_resource type="Script" uid="uid://lfxeur76arxt" path="res://title_screen.gd" id="1_2rfoo"]
+
+[node name="Title_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2rfoo")
+
+[node name="Start_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 511.0
+offset_top = 296.0
+offset_right = -558.0
+offset_bottom = -321.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Test"
+
+[connection signal="button_down" from="Start_btn" to="." method="_on_start_btn_down"]

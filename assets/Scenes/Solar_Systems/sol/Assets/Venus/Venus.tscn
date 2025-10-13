@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://lisd5bsrpw8d"]
+
+[ext_resource type="PackedScene" uid="uid://kcq4je646780" path="res://assets/Scenes/Solar_Systems/sol/Assets/Venus/Venus.blend" id="1_ke11j"]
+
+[node name="Venus" type="Node3D"]
+
+[node name="Venus" parent="." instance=ExtResource("1_ke11j")]

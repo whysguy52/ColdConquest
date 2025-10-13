@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://7pt2tfcj68t2"]
+
+[ext_resource type="PackedScene" uid="uid://d12ildy82na4v" path="res://assets/Scenes/Solar_Systems/sol/Assets/Murcury/Murcury.blend" id="1_4o7be"]
+
+[node name="Murcury" type="Node3D"]
+
+[node name="Murcury" parent="." instance=ExtResource("1_4o7be")]

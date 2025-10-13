@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://colhshso8x7ev"]
+
+[ext_resource type="Script" uid="uid://dq7pyg71f0aae" path="res://assets/Scenes/Solar_Systems/sol/Assets/Mini_Map/mini_map_sol.gd" id="1_8s8rj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1brq4"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_eabeo"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_k1bhl"]
+inner_radius = 14.9
+outer_radius = 15.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_ncsns"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_a0e2h"]
+inner_radius = 5.7
+outer_radius = 5.9
+
+[sub_resource type="SphereMesh" id="SphereMesh_c3cpo"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_k65w5"]
+inner_radius = 10.7
+outer_radius = 10.9
+
+[node name="mini_map_sol" type="Node3D"]
+script = ExtResource("1_8s8rj")
+
+[node name="sun" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1brq4")
+
+[node name="planets" type="Node3D" parent="."]
+
+[node name="Earth" type="Node3D" parent="planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.999999999999998)
+
+[node name="Earth" type="MeshInstance3D" parent="planets/Earth"]
+mesh = SubResource("SphereMesh_eabeo")
+skeleton = NodePath("../../..")
+
+[node name="Earth_Orbit" type="MeshInstance3D" parent="planets/Earth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+mesh = SubResource("TorusMesh_k1bhl")
+skeleton = NodePath("../../../sun")
+
+[node name="Murcury" type="Node3D" parent="planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.377575219606149, 0, -3.8117590630677913)
+
+[node name="Murcury" type="MeshInstance3D" parent="planets/Murcury"]
+mesh = SubResource("SphereMesh_ncsns")
+skeleton = NodePath("../../../sun")
+
+[node name="Murcury_Orbit" type="MeshInstance3D" parent="planets/Murcury"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.377575219606149, 0, 3.8117590630677913)
+mesh = SubResource("TorusMesh_a0e2h")
+skeleton = NodePath("../../../sun")
+
+[node name="Venus" type="Node3D" parent="planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66937371328024, 0, 4.708664945191215)
+
+[node name="Venus" type="MeshInstance3D" parent="planets/Venus"]
+mesh = SubResource("SphereMesh_c3cpo")
+skeleton = NodePath("../../../sun")
+
+[node name="Venus_Orbit" type="MeshInstance3D" parent="planets/Venus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66937371328024, 0, -4.708664945191212)
+mesh = SubResource("TorusMesh_k65w5")
+skeleton = NodePath("../../../sun")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 6.123233995736766e-17, 1, 0, -1, 6.123233995736766e-17, 0, 5, 0)
+projection = 1
+size = 45.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 6.123233995736766e-17, 1, 0, -1, 6.123233995736766e-17, 0, 9, 0)

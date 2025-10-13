@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://r4voa042id66"]
+
+[ext_resource type="PackedScene" uid="uid://dmh3qjim1hc4d" path="res://assets/Scenes/Solar_Systems/sol/Assets/Sol/Sol.blend" id="1_irb1t"]
+
+[node name="Sol" type="Node3D"]
+
+[node name="Sol" parent="." instance=ExtResource("1_irb1t")]
